@@ -13,6 +13,9 @@ import retrofit2.http.GET;
 
 public interface ApiService {
 
-    @GET("getwisata.php")
+//    @GET("getwisata.php")
+//    Call<ArrayList<WisataModel>> getWisata();
+
+    @GET("wisata/getAllWisata.php")
     Call<ArrayList<WisataModel>> getWisata();
 }

@@ -1,99 +1,117 @@
 package com.sc.semicolon.wisatasemarang.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by cis on 01/06/2018.
+ * Created by ASUS on 13/07/2018.
  */
 
-public class WisataModel {
-    @SerializedName("id")
+public class WisataModel implements Parcelable{
+    @SerializedName("id_wisata")
     @Expose
-    private String id;
-    @SerializedName("nama")
+    private String idWisata;
+    @SerializedName("nama_wisata")
     @Expose
-    private String nama;
-    @SerializedName("gambar")
+    private String namaWisata;
+    @SerializedName("kota_wisata")
     @Expose
-    private String gambar;
-    @SerializedName("deskripsi")
+    private String kotaWisata;
+    @SerializedName("jenis_wisata")
     @Expose
-    private String deskripsi;
-    @SerializedName("alamat")
+    private String jenisWisata;
+    @SerializedName("gambar_wisata")
     @Expose
-    private String alamat;
-    @SerializedName("event")
+    private String gambarWisata;
+    @SerializedName("deskripsi_wisata")
     @Expose
-    private String event;
-    @SerializedName("latitude")
-    @Expose
-    private String latitude;
-    @SerializedName("longitude")
-    @Expose
-    private String longitude;
+    private String deskripsiWisata;
 
-    public String getId() {
-        return id;
+    protected WisataModel(Parcel in) {
+        idWisata = in.readString();
+        namaWisata = in.readString();
+        kotaWisata = in.readString();
+        jenisWisata = in.readString();
+        gambarWisata = in.readString();
+        deskripsiWisata = in.readString();
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public static final Creator<WisataModel> CREATOR = new Creator<WisataModel>() {
+        @Override
+        public WisataModel createFromParcel(Parcel in) {
+            return new WisataModel(in);
+        }
+
+        @Override
+        public WisataModel[] newArray(int size) {
+            return new WisataModel[size];
+        }
+    };
+
+    public String getIdWisata() {
+        return idWisata;
     }
 
-    public String getNama() {
-        return nama;
+    public void setIdWisata(String idWisata) {
+        this.idWisata = idWisata;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public String getNamaWisata() {
+        return namaWisata;
     }
 
-    public String getGambar() {
-        return gambar;
+    public void setNamaWisata(String namaWisata) {
+        this.namaWisata = namaWisata;
     }
 
-    public void setGambar(String gambar) {
-        this.gambar = gambar;
+    public String getKotaWisata() {
+        return kotaWisata;
     }
 
-    public String getDeskripsi() {
-        return deskripsi;
+    public void setKotaWisata(String kotaWisata) {
+        this.kotaWisata = kotaWisata;
     }
 
-    public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
+    public String getJenisWisata() {
+        return jenisWisata;
     }
 
-    public String getAlamat() {
-        return alamat;
+    public void setJenisWisata(String jenisWisata) {
+        this.jenisWisata = jenisWisata;
     }
 
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
+    public String getGambarWisata() {
+        return gambarWisata;
     }
 
-    public String getEvent() {
-        return event;
+    public void setGambarWisata(String gambarWisata) {
+        this.gambarWisata = gambarWisata;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public String getDeskripsiWisata() {
+        return deskripsiWisata;
     }
 
-    public String getLatitude() {
-        return latitude;
+    public void setDeskripsiWisata(String deskripsiWisata) {
+        this.deskripsiWisata = deskripsiWisata;
     }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(idWisata);
+        parcel.writeString(namaWisata);
+        parcel.writeString(kotaWisata);
+        parcel.writeString(jenisWisata);
+        parcel.writeString(gambarWisata);
+        parcel.writeString(deskripsiWisata);
     }
 }

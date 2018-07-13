@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.sc.semicolon.wisatasemarang.DetailActivity;
+import com.sc.semicolon.wisatasemarang.Activity.DetailActivity;
 import com.sc.semicolon.wisatasemarang.Model.WisataModel;
 import com.sc.semicolon.wisatasemarang.R;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by cis on 01/06/2018.
@@ -22,11 +22,11 @@ import java.util.List;
 
 public class WisataAdapter extends RecyclerView.Adapter<WisataAdapter.WisataHolder> {
 
-    List<WisataModel> wisataModels;
+    ArrayList<WisataModel> list;
     Context context;
 
-    public WisataAdapter(List<WisataModel> wisataModels, Context context) {
-        this.wisataModels = wisataModels;
+    public WisataAdapter(ArrayList<WisataModel> list, Context context) {
+        this.list = list;
         this.context = context;
     }
 
@@ -39,18 +39,16 @@ public class WisataAdapter extends RecyclerView.Adapter<WisataAdapter.WisataHold
 
     @Override
     public void onBindViewHolder(WisataHolder holder, int position) {
-        WisataModel wm = wisataModels.get(position);
-        holder.tvWisata.setText(wm.getNama());
+        holder.tvWisata.setText(list.get(position).getNamaWisata());
         Glide.with(context)
-                .load(wm.getGambar())
+                .load("http://seputarwisatasemarang.000webhostapp.com/api/wisata/img/"+list.get(position).getGambarWisata())
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.imgWisata);
-        holder.wm = wm;
     }
 
     @Override
     public int getItemCount() {
-        return wisataModels.size();
+        return list.size();
     }
 
     public class WisataHolder extends RecyclerView.ViewHolder{
@@ -68,10 +66,8 @@ public class WisataAdapter extends RecyclerView.Adapter<WisataAdapter.WisataHold
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DetailActivity.class);
-                    intent.putExtra("nama", wm.getNama());
-                    intent.putExtra("deskripsi", wm.getDeskripsi());
-                    intent.putExtra("alamat", wm.getAlamat());
-                    intent.putExtra("gambar", wm.getGambar());
+                    intent.putParcelableArrayListExtra("list",list);
+                    intent.putExtra("position",getAdapterPosition());
                     context.startActivity(intent);
                 }
             });

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WisataSemarang.iml" filepath="$PROJECT_DIR$/WisataSemarang.iml" />
+      <module fileurl="file://D:\apps\Sandec\18 Juli 2018 - Retrofit\WisataSemarangSandec\WisataSemarang.iml" filepath="D:\apps\Sandec\18 Juli 2018 - Retrofit\WisataSemarangSandec\WisataSemarang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WisataSemarangSandec.iml" filepath="$PROJECT_DIR$/WisataSemarangSandec.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\apps\Sandec\18 Juli 2018 - Retrofit\WisataSemarangSandec\app\app.iml" filepath="D:\apps\Sandec\18 Juli 2018 - Retrofit\WisataSemarangSandec\app\app.iml" />
     </modules>
   </component>
 </project>
