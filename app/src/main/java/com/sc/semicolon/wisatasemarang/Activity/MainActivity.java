@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         cardBudaya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SortWisataActivity.class);
-                startActivity(intent);
                 Toast.makeText(MainActivity.this, "Maaf Belum Tersedia", Toast.LENGTH_SHORT).show();
             }
         });
